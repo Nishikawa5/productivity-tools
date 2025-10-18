@@ -21,5 +21,13 @@ A web application that helps manage your tasks in a "rotating order" to maintain
 - Monitor tasks completion
 - Export/import task data as JSON for backup and transfer
 
+## Tab Spaces Manager
+A simple browser extension that helps managing tabs for multiple interests.
+
+#### Features:
+- Create spaces that store tabs
+- Make managing tabs easier and decrease browser memory usage
+
+
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.

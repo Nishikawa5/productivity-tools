@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Spaces Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Tab Spaces</h1>
+            <div class="backup-actions">
+            <button id="exportBtn" class="btn btn-secondary btn-sm">Export Tabs</button>
+            <label for="importInput" class="btn btn-secondary btn-sm" style="cursor: pointer; margin-left: 8px;">
+                Import Tabs
+                <input type="file" id="importInput" accept="application/json" style="display: none;">
+            </label>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search tabs and spaces..." class="search-input">
+        </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Spaces Sidebar -->
+            <div class="spaces-sidebar">
+                <div class="spaces-header">
+                    <h3>Spaces</h3>
+                    <button id="createSpaceBtn" class="btn btn-primary btn-sm">+ New Space</button>
+                </div>
+
+                <div id="spacesList" class="spaces-list">
+                    <!-- Spaces will be populated here -->
+                </div>
+            </div>
+
+            <!-- Tabs Content Area -->
+            <div class="tabs-content">
+                <div class="tabs-header">
+                    <h3 id="currentSpaceName">Select a Space</h3>
+                    <div class="tabs-actions">
+                        <button id="addTabsBtn" class="btn btn-secondary btn-sm">+ Add Tabs</button>
+                        <button id="selectTabsBtn" class="btn btn-secondary btn-sm">Select Open Tabs</button>
+                    </div>
+                </div>
+
+                <div id="tabsGrid" class="tabs-grid">
+                    <!-- Tabs will be populated here -->
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <p>No tabs in this space yet.</p>
+                    <p>Add tabs by pasting URLs or selecting from open tabs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="createSpaceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Space</h3>
+                <span class="close-btn" data-modal="createSpaceModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="spaceNameInput" placeholder="Space name" class="input-field">
+                <textarea id="spaceDescriptionInput" placeholder="Description (optional)" class="input-field"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelCreateSpace" class="btn btn-secondary">Cancel</button>
+                <button id="confirmCreateSpace" class="btn btn-primary">Create Space</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addTabModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Tab</h3>
+                <span class="close-btn" data-modal="addTabModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="url" id="tabUrlInput" placeholder="Paste URL here" class="input-field">
+                <input type="text" id="tabTitleInput" placeholder="Custom title (optional)" class="input-field">
+            </div>
+            <div class="modal-footer">
+                <button id="cancelAddTab" class="btn btn-secondary">Cancel</button>
+                <button id="confirmAddTab" class="btn btn-primary">Add Tab</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="selectOpenTabsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Open Tabs</h3>
+                <span class="close-btn" data-modal="selectOpenTabsModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="select-all-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="selectAllTabs">
+                        <span class="checkmark"></span>
+                        Select All
+                    </label>
+                </div>
+                <div id="openTabsList" class="open-tabs-list">
+                    <!-- Open tabs will be populated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelSelectTabs" class="btn btn-secondary">Cancel</button>
+                <button id="confirmSelectTabs" class="btn btn-primary">Add Selected Tabs</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

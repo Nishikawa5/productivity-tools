@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Spaces Manager",
+  "version": "1.0.0",
+  "description": "Organize your browser tabs into spaces like Workona",
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "notifications"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Spaces Manager"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "./icons/niorao16.png",
+    "48": "./icons/niorao32.png",
+    "128": "./icons/niorao180.png"
+  }
+}
